@@ -1,0 +1,120 @@
+									<div class="row">
+                                        <div class='col-sm-4'></div>
+                                            <div class='col-sm-5'>
+                                                <table class='table table-bordered'>
+                                                    <tr>
+                                                        <td>Nama Mahasiswa</td>
+                                                        <td ><input  ng-model="form.nama"  name="nama" type='text'   class='form-control'  ></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Tanggal</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                    <div class='input-group date' id='datepicker'>
+                                                                        <input type="text" name="tanggal" ng-model="form.tanggal"  class="form-control" >
+                                                                            <span class="input-group-addon">
+                                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                                            </span>
+                                                                    </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Alamat</td>
+                                                        <td><textarea  size="10" name="alamat" ng-model="form.alamat" ></textarea></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Telpon</td>
+                                                        <td><input type="text" id="telpon" name="telpon" ng-model="form.telpon" onkeypress="return isNumber(event)" class='form-control'></td>
+                                                    </tr>
+                                                <div class="control-group">
+                                                    <tr>
+                                                        <td>Jenis Kelamin</td>
+                                                        <div class="controls">
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <div class="col-sm-6">
+                                                                    <input type="radio" name="jenis" ng-model="form.jenis"  value='Laki-laki'> Laki - Laki &nbsp;
+                                                                    <input type="radio" name="jenis" ng-model="form.jenis"  value='Perempuan'> Perempuan
+                                                                </div>
+                                                              </div>    
+                                                        </td>
+                                                    </tr>
+                                                        </div>
+                                                </div>
+                                                    <div ng-init="country=['Indonesia','Malaysia','Singapura','China']"></div>
+                                                <tr>
+                                                    <td>Kewarganegaraan</td>
+                                                    <td>
+                                                        <select class="form-control" name="negara" ng-model="form.negara"  >
+                                                            <option>-</option>
+                                                            <option ng-repeat="tampilan in country">{{tampilan}}</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="2">
+                                                        <button type="button" name="submit"  ng-click="addDatabase()"   class="btn btn-primary"  >
+                                                            <span class="glyphicon glyphicon-plus"></span> Save </button>
+                                                    </td>
+                                                </tr>
+
+                                            </div>
+                                                </table>
+            </form>
+                                            <div ng-repeat="database in databases" >
+                                                <h3>Output Hasil </h3>
+                                                    <table  class='table table-bordered'>
+                                                        <tr>
+                                                            <td>Nama Mahasiswa</td>
+                                                            <td><input type='text' value={{database.nama}}  class='form-control' ></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tanggal</td>
+                                                            <td>
+                                                                <div class="form-group">
+                                                                    <div class='input-group date' id='date'>
+                                                                        <input  type='text' name="tanggal" value={{database.tanggal}}  class="form-control"  />
+                                                                            <span class="input-group-addon">
+                                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Alamat</td>
+                                                            <td><textarea size="10">{{database.alamat}}</textarea></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Telpon</td>
+                                                            <td><input type="text"  name="itelepon" value={{database.telpon}} class='form-control'></input></td>
+                                                        </tr>
+                                                        <div class="control-group">
+                                                            <tr>
+                                                            <td>Jenis Kelamin</td>
+                                                                <div class="controls">
+                                                                    <td>
+                                                                        <input type="text" name="jenis" value={{database.jenis}} class='form-control'>
+                                                                    </td>
+                                                            </tr>
+                                                                </div>
+                                                        </div>
+                                                        <div ng-init="country=['Indonesia','Malaysia','Singapura','China']"></div>
+                                                        <tr>
+                                                            <td>Kewarganegaraan</td>
+                                                            <td>
+                                                                <input type="text" name="inegara" value={{database.negara}} class='form-control'>
+                                                            </td>
+                                                        </tr>
+                                                            <td align="center" colspan="2">
+                                                                <button type="submit" name="delete" ng-click="remove(database)"  onClick="return confirm(' Data Yakin Mau dihapus ?');" class="btn btn-danger"  >
+                                                                    <span class="glyphicon glyphicon-remove"></span> Delete </button>
+                                                                <button type="button" ng-click="edit(database)" onClick="return confirm(' Data Yakin Mau Edit Data ?');" name="edit"  class="btn btn-md btn-primary"><span class="glyphicon glyphicon-check"></span> Edit</button>
+                                                            </td>
+
+
+                                                    </table>
+                                            </div>
+                                    </div>
